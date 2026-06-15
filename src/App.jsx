@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
 import Home from './pages/Home';
-import ProjectsPage from './pages/ProjectsPage'; // Double check your folder has ProjectsPage.jsx
+import AboutPage from './pages/AboutPage'; // Import new About Detail Page
+import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import ServicesPage from './pages/ServicesPage';
 
@@ -16,6 +17,7 @@ export default function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} /> {/* Render dynamic narrative view profile here */}
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/contact" element={<ContactPage />} />

@@ -7,13 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        // Enforces Inter as your default sans font family layout across the DOM
+        sans: ['Inter', 'sans-serif'], 
       },
-      colors: {
-        archDark: '#111111',
-        archAccent: '#C5A880',
-      }
     },
   },
   plugins: [],
