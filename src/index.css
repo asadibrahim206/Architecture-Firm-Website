@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Playfair Display", serif;
-  --color-archDark: #111111;
-  --color-archAccent: #C5A880;
+@layer base {
+  html, body, button, a {
+    font-family: 'Inter', sans-serif !important;
+  }
 }
