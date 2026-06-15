@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import logoImg from '../assets/logo.jpeg'; // Import your uploaded logo asset
 
 export default function Preloader() {
   const [showNull, setShowNull] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    // Lock scrolling while active
     document.body.style.overflow = 'hidden';
 
-    // Wait 2 seconds, then fade out
+    // Holds screen for exactly 2 seconds
     const fadeTimer = setTimeout(() => {
       setIsFading(true);
     }, 2000);
 
-    // Unmount completely at 3 seconds
     const removeTimer = setTimeout(() => {
       setShowNull(true);
       document.body.style.overflow = 'unset';
@@ -30,23 +29,26 @@ export default function Preloader() {
 
   return (
     <div 
-      className={`fixed inset-0 flex flex-col items-center justify-center bg-zinc-950 transform transition-all duration-1000 ease-in-out ${
+      className={`fixed inset-0 flex flex-col items-center justify-center bg-white transform transition-all duration-1000 ease-in-out ${
         isFading ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'
       }`}
-      style={{ zIndex: 999999 }} // Inline style override to guarantee it stays on top
+      style={{ zIndex: 999999 }}
     >
-      <div className="text-center px-4">
-        <h1 className="font-serif text-4xl md:text-6xl text-white tracking-[0.4em] uppercase font-light select-none animate-pulse">
-          Monolith
-        </h1>
-        
-        <div 
-          className="h-[1px] bg-amber-500 mx-auto mt-6 transition-all duration-[1500ms] ease-out"
-          style={{ width: isFading ? '0px' : '128px' }}
+      <div className="text-center px-4 max-w-md">
+        {/* Render Your Uploaded Logo Asset Image smoothly */}
+        <img 
+          src={logoImg} 
+          alt="Design Scales Architecture Logo" 
+          className="w-64 md:w-80 h-auto mx-auto object-contain mb-4 animate-pulse duration-[2000ms]"
         />
         
-        <p className="text-[10px] text-zinc-400 tracking-[0.45em] uppercase mt-4 select-none font-medium opacity-80">
-          Architecture Studio
+        <div 
+          className="h-[2px] bg-zinc-800 mx-auto mt-2 transition-all duration-[1500ms] ease-out"
+          style={{ width: isFading ? '0px' : '180px' }}
+        />
+        
+        <p className="text-[11px] text-zinc-500 tracking-[0.4em] uppercase mt-4 select-none font-semibold">
+          DESIGN SCALES ARCHITECTURE
         </p>
       </div>
     </div>
